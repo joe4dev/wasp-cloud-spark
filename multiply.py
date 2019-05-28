@@ -8,8 +8,9 @@ from pyspark.mllib.linalg.distributed import BlockMatrix
 import numpy
 
 appName = "MultiplyApp"
+local = "local"
 local_parallel = "local[*]"
-conf = SparkConf().setAppName(appName).setMaster("local")
+conf = SparkConf().setAppName(appName).setMaster(local)
 sc = SparkContext(conf=conf)
 spark = SparkSession(sc)
 
@@ -24,6 +25,7 @@ mat2 = BlockMatrix(blocks2, 3, 2)
 mat3 = BlockMatrix(blocks3, 3, 2)
 
 mat1.add(mat2).toLocalMatrix()
+mat1.add(mat3).toLocalMatrix()
 
 print("done")
 
