@@ -73,6 +73,6 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
 
 ### Chosen Operations
 
-* `add` => Matrix multiplication seems to be a standard benchmark operation used in practice (see Figure 2 + Benchmark in PR)
+* `multiply` => Matrix multiplication seems to be a standard benchmark operation used in practice (see Figure 2 + Benchmark in PR)
   * SparseMatrix vs DenseMatrix !? ()
 * ???
