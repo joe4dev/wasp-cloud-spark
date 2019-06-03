@@ -6,7 +6,6 @@ from google.cloud import storage
 client = dataproc_v1.ClusterControllerClient()
 job_client = dataproc_v1.JobControllerClient()
 
-# TODO: remove default value: os.environ['PROJECT_ID']
 project_id = os.environ['PROJECT_ID']
 region = 'global'
 
@@ -39,17 +38,23 @@ def cluster_data(num_workers = 2):
             },
             'master_config': {
                 'num_instances': 1,
-                'machine_type_uri': machine_type
+                'machine_type_uri': machine_type,
+                'disk_config': {
+                    'boot_disk_size_gb': 15
+                }
             },
             'worker_config': {
                 'num_instances': num_workers,
-                'machine_type_uri': machine_type
+                'machine_type_uri': machine_type,
+                'disk_config': {
+                    'boot_disk_size_gb': 15
+                }
             },
             'software_config': {
-                'image_version': '1.4-ubuntu18'
+                'image_version': '1.3-ubuntu18'
             },
             'initialization_actions': [
-                'gs://dataproc-initialization-actions/python/pip-install.shy'
+                { 'executable_file': 'gs://{}/{}'.format(bucket_name, 'pip_install.sh') }
             ]
         }
     }
@@ -58,8 +63,7 @@ def cluster_data(num_workers = 2):
 def create_cluster():
     """Create the cluster."""
     print('Creating cluster...')
-    metadata = [('PIP_PACKAGES', 'scipy==1.2.1 numpy==1.16.3')]
-    cluster = client.create_cluster(project_id, region, cluster_data(), metadata=metadata)
+    cluster = client.create_cluster(project_id, region, cluster_data())
     cluster.add_done_callback(callback)
     global waiting_callback
     waiting_callback = True
@@ -68,9 +72,9 @@ def update_cluster(num_workers):
     """Update the cluster."""
     print('Updating cluster...')
     update_mask = { 'paths': ['config.worker_config.num_instances'] }
+    # metadata cannot contain capital keys!
     # metadata = [('PIP_PACKAGES', 'scipy==1.2.1')]
-    metadata = [('x-goog-api-client', 'gl-python/2.7.14 grpc/1.21.1 gax/1.11.1 gapic/0.4.0')]
-    cluster = client.update_cluster(project_id, region, cluster_name, cluster_data(num_workers), update_mask, metadata=metadata)
+    cluster = client.update_cluster(project_id, region, cluster_name, cluster_data(num_workers), update_mask)
     print(cluster)
     cluster.add_done_callback(callback)
     global waiting_callback
@@ -80,7 +84,7 @@ def delete_cluster():
     """Delete the cluster."""
     print('Tearing down cluster.')
     result = client.delete_cluster(
-        project_id=project_id, region=region, cluster_name=cluster)
+        project_id=project_id, region=region, cluster_name=cluster_name)
     return result
 
 def callback(operation_future):
@@ -115,6 +119,14 @@ def upload_pyspark_file(project_id, bucket_name, filename, spark_file):
     bucket = storage_client.get_bucket(bucket_name)
     blob = bucket.blob(filename)
     blob.upload_from_file(spark_file)
+
+def upload_pip_file(project_id, bucket_name, filename, pip_file):
+    """Uploads the Pip Installer file in this directory to the configured input bucket."""
+    print('Uploading pyspark file to Cloud Storage.')
+    storage_client = storage.Client(project=project_id)
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(filename)
+    blob.upload_from_file(pip_file)
 
 def download_output(project_id, cluster_id, output_bucket, job_id):
     """Downloads the output file from Cloud Storage and returns it as a
@@ -163,32 +175,33 @@ def wait_for_job(dataproc, project_id, region, job_id):
             print('Job finished.')
             return job
 
-# Only first time (if not exists)
-# create_bucket(bucket_name)
 
 list_clusters_with_details()
+
 spark_file, spark_filename = get_pyspark_file(pyspark_file)
-# upload_pyspark_file(project_id, bucket_name, spark_filename, spark_file)
+pip_file, pip_filename = get_pyspark_file('pip_install.sh')
+# Only first time (if not exists)
+# create_bucket(bucket_name)
+# upload_pip_file(project_id, bucket_name, pip_filename, pip_file)
+# on changes
+upload_pyspark_file(project_id, bucket_name, spark_filename, spark_file)
 
-# create_cluster()
-# wait_for_cluster_operation()
-
-update_cluster(2)
+create_cluster()
 wait_for_cluster_operation()
 
-# (cluster_id, output_bucket) = (
-#                 get_cluster_id_by_name(client, project_id,
-#                                        region, cluster_name))
-# job_id = submit_pyspark_job(job_client, project_id, region,
-#                             cluster_name, bucket_name, spark_filename)
-# wait_for_job(job_client, project_id, region, job_id)
-# output = download_output(project_id, cluster_id, output_bucket, job_id)
-# print('Received job output {}'.format(output))
+(cluster_id, output_bucket) = (
+                get_cluster_id_by_name(client, project_id,
+                                       region, cluster_name))
+job_id = submit_pyspark_job(job_client, project_id, region,
+                            cluster_name, bucket_name, spark_filename)
+wait_for_job(job_client, project_id, region, job_id)
+output = download_output(project_id, cluster_id, output_bucket, job_id)
+print('Received job output {}'.format(output))
 
-# list_clusters_with_details()
+list_clusters_with_details()
 # update_cluster(3)
 # wait_for_cluster_operation()
 
 # # TODO: use try/finally to kill resources on failure
-# # delete_cluster()
+# delete_cluster()
 # spark_file.close()
