@@ -176,33 +176,46 @@ def wait_for_job(dataproc, project_id, region, job_id):
             print('Job finished.')
             return job
 
-print('Cluster list:')
-list_clusters_with_details()
+def submit_job(spark_filename):
+    (cluster_id, output_bucket) = (
+    get_cluster_id_by_name(client, project_id,
+                            region, cluster_name))
+    job_id = submit_pyspark_job(job_client, project_id, region,
+                                cluster_name, bucket_name, spark_filename)
+    wait_for_job(job_client, project_id, region, job_id)
+    output = download_output(project_id, cluster_id, output_bucket, job_id)
+    print('Received job output {}'.format(output))
 
-spark_file, spark_filename = get_pyspark_file(pyspark_file)
-pip_file, pip_filename = get_pyspark_file(pip_file)
-# Basically only necessary if not exists
-create_bucket(bucket_name)
-upload_pip_file(project_id, bucket_name, pip_filename, pip_file)
-# Basically only necessary on update
-upload_pyspark_file(project_id, bucket_name, spark_filename, spark_file)
+def main():
+    print('List clusters:')
+    list_clusters_with_details()
 
-create_cluster()
-wait_for_cluster_operation()
+    spark_file, spark_filename = get_pyspark_file(pyspark_file)
+    pip_file, pip_filename = get_pyspark_file(pip_file)
+    # Basically only necessary if not exists
+    # create_bucket(bucket_name)
+    upload_pip_file(project_id, bucket_name, pip_filename, pip_file)
+    upload_pyspark_file(project_id, bucket_name, spark_filename, spark_file)
 
-(cluster_id, output_bucket) = (
-                get_cluster_id_by_name(client, project_id,
-                                       region, cluster_name))
-job_id = submit_pyspark_job(job_client, project_id, region,
-                            cluster_name, bucket_name, spark_filename)
-wait_for_job(job_client, project_id, region, job_id)
-output = download_output(project_id, cluster_id, output_bucket, job_id)
-print('Received job output {}'.format(output))
+    # create_cluster()
+    # wait_for_cluster_operation()
+    # list_clusters_with_details()
 
-list_clusters_with_details()
-# update_cluster(3)
-# wait_for_cluster_operation()
+    print('Resizing cluster to {} nodes'.format(2))
+    update_cluster(2)
+    wait_for_cluster_operation()
+    submit_job(spark_filename)
+    submit_job(spark_filename)
+    submit_job(spark_filename)
 
-# # TODO: use try/finally to kill resources on failure
-# delete_cluster()
-# spark_file.close()
+    for x in range(3, 8):
+        print('Resizing cluster to {} nodes'.format(x))
+        update_cluster(x)
+        wait_for_cluster_operation()
+        submit_job(spark_filename)
+        submit_job(spark_filename)
+        submit_job(spark_filename)
+
+    # TODO: use try/finally to kill resources on failure
+    # delete_cluster()
+    # spark_file.close()
