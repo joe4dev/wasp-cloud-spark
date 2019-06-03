@@ -1,0 +1,507 @@
+(wasp-cloud) ➜  wasp-cloud-spark git:(master) ✗ python run_cloud.py 
+List clusters:
+wasp-cloud - RUNNING
+Uploading pyspark file to Cloud Storage.
+Uploading pyspark file to Cloud Storage.
+Resizing cluster to 2 nodes
+Submitted job ID 25f82ca2-f408-41f4-9008-eebdfc1b8eab.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:19:40 INFO org.spark_project.jetty.util.log: Logging initialized @4812ms
+19/06/03 15:19:40 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git 
+hash: unknown
+19/06/03 15:19:40 INFO org.spark_project.jetty.server.Server: Started @4973ms
+19/06/03 15:19:40 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@1a52bad3{HTTP/1.1
+,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:19:41 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:19:43 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:19:44 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:19:47 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:19:47 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0003
+19/06/03 15:20:05 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:20:09 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:20:37 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:33.611811
+19/06/03 15:20:37 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:61.951685
+19/06/03 15:21:39 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@1a52bad3{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 688d316e-1300-4466-83ee-c184c40a721b.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:21:53 INFO org.spark_project.jetty.util.log: Logging initialized @4556ms
+19/06/03 15:21:53 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:21:53 INFO org.spark_project.jetty.server.Server: Started @4768ms
+19/06/03 15:21:53 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@5cbb432{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:21:54 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:21:56 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:21:57 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:22:01 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0004
+19/06/03 15:22:18 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:22:22 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:22:52 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:35.585898
+19/06/03 15:22:52 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:61.864877
+19/06/03 15:23:54 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@5cbb432{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 1c61c4e7-aae2-46ef-b5ab-6a044547bf92.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:24:07 INFO org.spark_project.jetty.util.log: Logging initialized @4268ms
+19/06/03 15:24:07 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:24:07 INFO org.spark_project.jetty.server.Server: Started @4512ms
+19/06/03 15:24:07 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@7d4c0fde{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:24:07 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:24:10 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:24:11 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:24:15 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:24:15 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0005
+19/06/03 15:24:32 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:24:36 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:25:08 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:37.413475
+19/06/03 15:25:08 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:68.947846
+19/06/03 15:26:17 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@7d4c0fde{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Resizing cluster to 3 nodes
+Updating cluster...
+<google.api_core.operation.Operation object at 0x1053a3e10>
+Waiting for cluster operation (create or update)...
+Cluster created or updated.
+Submitted job ID 84d98062-cec5-49b9-8aa6-14a2105f157c.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:28:47 INFO org.spark_project.jetty.util.log: Logging initialized @4003ms
+19/06/03 15:28:47 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:28:47 INFO org.spark_project.jetty.server.Server: Started @4242ms
+19/06/03 15:28:47 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@76b852bf{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:28:47 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:28:50 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:28:51 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:28:55 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:28:55 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0006
+19/06/03 15:29:17 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:29:22 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:29:40 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:24.838653
+19/06/03 15:29:41 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:35.397916
+19/06/03 15:30:16 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@76b852bf{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:30:16 WARN org.apache.spark.rpc.netty.Dispatcher: Message RemoteProcessDisconnected(10.142.0.14:53522) dropped. Could not find OutputCommitCoordinator.
+
+Submitted job ID 7c2520af-2096-4414-b35f-c4fc3152e88c.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:30:27 INFO org.spark_project.jetty.util.log: Logging initialized @4074ms
+19/06/03 15:30:27 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:30:27 INFO org.spark_project.jetty.server.Server: Started @4277ms
+19/06/03 15:30:27 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@652a173{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:30:27 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:30:30 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:30:30 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:30:33 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:30:34 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0007
+19/06/03 15:30:52 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:30:56 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:31:17 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:26.512504
+19/06/03 15:31:17 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:37.032878
+19/06/03 15:31:54 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@652a173{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 9647ddea-2186-418e-9ebc-fc4972be2f70.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:32:06 INFO org.spark_project.jetty.util.log: Logging initialized @3844ms
+19/06/03 15:32:06 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:32:06 INFO org.spark_project.jetty.server.Server: Started @4052ms
+19/06/03 15:32:06 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@76b852bf{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:32:06 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:32:09 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:32:09 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:32:13 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0008
+19/06/03 15:32:31 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:32:35 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:32:53 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:23.907462
+19/06/03 15:32:54 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:33.988464
+19/06/03 15:33:28 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@76b852bf{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Resizing cluster to 4 nodes
+Updating cluster...
+<google.api_core.operation.Operation object at 0x105397d90>
+Waiting for cluster operation (create or update)...
+Cluster created or updated.
+Submitted job ID 0237fce0-c937-442b-8624-a947444ecd53.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:36:39 INFO org.spark_project.jetty.util.log: Logging initialized @4528ms
+19/06/03 15:36:39 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:36:39 INFO org.spark_project.jetty.server.Server: Started @4741ms
+19/06/03 15:36:39 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@63d0ba5e{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:36:40 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:36:43 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:36:43 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:36:47 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:36:48 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0009
+19/06/03 15:37:05 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:37:09 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:37:26 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:22.955695
+19/06/03 15:37:27 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:24.776839
+19/06/03 15:37:52 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@63d0ba5e{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 7bffa347-edad-4d96-aedc-727b7f33c478.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:38:02 INFO org.spark_project.jetty.util.log: Logging initialized @3871ms
+19/06/03 15:38:02 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:38:02 INFO org.spark_project.jetty.server.Server: Started @4087ms
+19/06/03 15:38:02 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@653885a8{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:38:02 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:38:05 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:38:05 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:38:09 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:38:10 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0010
+19/06/03 15:38:28 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:38:32 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:38:49 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:23.454826
+19/06/03 15:38:50 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:24.298006
+19/06/03 15:39:14 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@653885a8{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 2e8010d5-e751-43c1-b3d6-658623e3fb18.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:39:27 INFO org.spark_project.jetty.util.log: Logging initialized @3935ms
+19/06/03 15:39:27 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:39:27 INFO org.spark_project.jetty.server.Server: Started @4140ms
+19/06/03 15:39:27 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@652a173{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:39:27 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:39:30 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:39:30 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:39:34 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0011
+19/06/03 15:39:52 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:39:55 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:40:14 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:23.804623
+19/06/03 15:40:14 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:24.947702
+19/06/03 15:40:39 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@652a173{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Resizing cluster to 5 nodes
+Updating cluster...
+<google.api_core.operation.Operation object at 0x105397e90>
+Waiting for cluster operation (create or update)...
+Cluster created or updated.
+Submitted job ID ea522a71-79f7-4bb2-b310-1ac61a6cc62a.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:43:17 INFO org.spark_project.jetty.util.log: Logging initialized @4467ms
+19/06/03 15:43:17 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:43:18 INFO org.spark_project.jetty.server.Server: Started @4701ms
+19/06/03 15:43:18 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@63d0ba5e{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:43:18 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:43:21 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:43:21 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:43:25 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:43:26 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0012
+19/06/03 15:43:43 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:43:47 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:44:03 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:22.044645
+19/06/03 15:44:04 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:20.819585
+19/06/03 15:44:24 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@63d0ba5e{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 050e799a-2c30-4a5e-9ed1-4ebb1dd6f19f.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:44:37 INFO org.spark_project.jetty.util.log: Logging initialized @4300ms
+19/06/03 15:44:38 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:44:38 INFO org.spark_project.jetty.server.Server: Started @4536ms
+19/06/03 15:44:38 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@c1a8d1{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:44:38 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:44:41 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:44:41 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:44:46 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0013
+19/06/03 15:45:02 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:45:06 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:45:23 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:21.780798
+19/06/03 15:45:23 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:20.770659
+19/06/03 15:45:44 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@c1a8d1{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 858c2989-7b9b-47af-b1aa-d3c3b93c0542.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:45:57 INFO org.spark_project.jetty.util.log: Logging initialized @4349ms
+19/06/03 15:45:57 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:45:57 INFO org.spark_project.jetty.server.Server: Started @4581ms
+19/06/03 15:45:57 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@514f1c65{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:45:58 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:46:01 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:46:01 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:46:05 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:46:05 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0014
+19/06/03 15:46:23 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:46:28 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:46:44 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:22.394677
+19/06/03 15:46:44 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:21.301529
+19/06/03 15:47:06 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@514f1c65{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Resizing cluster to 6 nodes
+Updating cluster...
+<google.api_core.operation.Operation object at 0x105321ed0>
+Waiting for cluster operation (create or update)...
+Cluster created or updated.
+Submitted job ID d137fb89-7e8b-4149-804f-22f8880d5f1c.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:50:36 INFO org.spark_project.jetty.util.log: Logging initialized @4322ms
+19/06/03 15:50:37 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:50:37 INFO org.spark_project.jetty.server.Server: Started @4584ms
+19/06/03 15:50:37 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@652a173{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:50:37 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:50:40 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:50:40 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:50:43 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:50:44 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0015
+19/06/03 15:51:02 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:51:05 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:51:23 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:23.287247
+19/06/03 15:51:24 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:20.252744
+19/06/03 15:51:44 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@652a173{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 13db371b-1374-4670-a549-5a445ad698c0.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:51:58 INFO org.spark_project.jetty.util.log: Logging initialized @5071ms
+19/06/03 15:51:58 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:51:58 INFO org.spark_project.jetty.server.Server: Started @5311ms
+19/06/03 15:51:58 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@66b65d33{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:51:59 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:52:02 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:52:02 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:52:06 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:52:07 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0016
+19/06/03 15:52:25 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:52:29 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:52:45 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:21.660689
+19/06/03 15:52:45 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:20.660093
+19/06/03 15:53:06 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@66b65d33{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 2caff802-c242-4249-b689-e730642d7b02.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:53:17 INFO org.spark_project.jetty.util.log: Logging initialized @4005ms
+19/06/03 15:53:17 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:53:17 INFO org.spark_project.jetty.server.Server: Started @4229ms
+19/06/03 15:53:17 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@1418b670{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:53:18 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:53:21 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:53:21 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:53:25 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:53:26 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0017
+19/06/03 15:53:42 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:53:46 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:54:01 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:20.554064
+19/06/03 15:54:02 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:23.540028
+19/06/03 15:54:25 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@1418b670{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Resizing cluster to 7 nodes
+Updating cluster...
+<google.api_core.operation.Operation object at 0x105309d50>
+Waiting for cluster operation (create or update)...
+Cluster created or updated.
+Submitted job ID 93ff168d-5162-4d6d-a142-e4dcb6d35b3b.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:57:27 INFO org.spark_project.jetty.util.log: Logging initialized @4302ms
+19/06/03 15:57:28 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:57:28 INFO org.spark_project.jetty.server.Server: Started @4513ms
+19/06/03 15:57:28 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@4563b68c{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:57:28 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:57:30 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:57:31 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:57:34 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:57:35 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0018
+19/06/03 15:57:52 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:57:56 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:58:13 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:22.262043
+19/06/03 15:58:13 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:19.066416
+19/06/03 15:58:32 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@4563b68c{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 9a8ed070-fd6f-49b2-a4f2-c76f46037dae.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 15:58:48 INFO org.spark_project.jetty.util.log: Logging initialized @4636ms
+19/06/03 15:58:48 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 15:58:48 INFO org.spark_project.jetty.server.Server: Started @4869ms
+19/06/03 15:58:48 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@2b883d84{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 15:58:48 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 15:58:51 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 15:58:51 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 15:58:54 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 15:58:55 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0019
+19/06/03 15:59:11 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:59:15 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 15:59:31 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:21.662658
+19/06/03 15:59:31 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:17.304382
+19/06/03 15:59:48 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@2b883d84{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+Submitted job ID 74dfed83-6687-433c-94db-3dc8e90dd52c.
+Waiting for job to finish...
+Job finished.
+Downloading output file.
+Received job output 19/06/03 16:00:02 INFO org.spark_project.jetty.util.log: Logging initialized @4324ms
+19/06/03 16:00:02 INFO org.spark_project.jetty.server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+19/06/03 16:00:02 INFO org.spark_project.jetty.server.Server: Started @4546ms
+19/06/03 16:00:02 INFO org.spark_project.jetty.server.AbstractConnector: Started ServerConnector@72fd0ef5{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+19/06/03 16:00:02 WARN org.apache.spark.scheduler.FairSchedulableBuilder: Fair Scheduler configuration file not found so jobs will be scheduled in FIFO order. To use fair scheduling, configure pools in fairscheduler.xml or set spark.scheduler.allocation.file to a file that contains the configuration.
+19/06/03 16:00:05 INFO org.apache.hadoop.yarn.client.RMProxy: Connecting to ResourceManager at wasp-cloud-m/10.142.0.15:8032
+19/06/03 16:00:05 INFO org.apache.hadoop.yarn.client.AHSProxy: Connecting to Application History server at wasp-cloud-m/10.142.0.15:10200
+19/06/03 16:00:09 WARN org.apache.hadoop.hdfs.DataStreamer: Caught exception
+java.lang.InterruptedException
+        at java.lang.Object.wait(Native Method)
+        at java.lang.Thread.join(Thread.java:1252)
+        at java.lang.Thread.join(Thread.java:1326)
+        at org.apache.hadoop.hdfs.DataStreamer.closeResponder(DataStreamer.java:980)
+        at org.apache.hadoop.hdfs.DataStreamer.endBlock(DataStreamer.java:630)
+        at org.apache.hadoop.hdfs.DataStreamer.run(DataStreamer.java:807)
+19/06/03 16:00:10 INFO org.apache.hadoop.yarn.client.api.impl.YarnClientImpl: Submitted application application_1559570556161_0020
+19/06/03 16:00:27 WARN org.apache.spark.scheduler.TaskSetManager: Stage 0 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 16:00:31 WARN org.apache.spark.scheduler.TaskSetManager: Stage 1 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+19/06/03 16:00:46 WARN org.apache.spark.scheduler.TaskSetManager: Stage 2 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+PARALLELIZE_DURATION:21.058862
+19/06/03 16:00:47 WARN org.apache.spark.scheduler.TaskSetManager: Stage 3 contains a task of very large size (155 KB). The maximum recommended task size is 100 KB.
+CALCULATION_DURATION:19.503073
+19/06/03 16:01:06 INFO org.spark_project.jetty.server.AbstractConnector: Stopped Spark@72fd0ef5{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+
+(wasp-cloud) ➜  wasp-cloud-spark git:(master) ✗ 
