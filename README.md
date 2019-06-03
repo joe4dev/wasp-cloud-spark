@@ -6,8 +6,18 @@
 
 ## Requirements
 
+### Local
+
 * [Apache Spark](https://spark.apache.org/downloads.html) (v2.4.3)
 * Java 8 in the path [see JAVA_HOME](https://stackoverflow.com/questions/53583199/pyspark-error-unsupported-class-file-major-version-55)
+* [Authentication JSON Key](https://google-auth.readthedocs.io/en/latest/user-guide.html#service-account-private-key-files)
+  * [Create JSON Key](https://console.cloud.google.com/apis/credentials)
+  * `export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json`
+* Set `export PROJECT_ID=YOUR_PROJECT_ID`
+
+### Google Cloud
+
+* Enabled Dataproc API: https://console.cloud.google.com/dataproc/clusters?project=YOUR_PROJECT_NAME
 
 ## Project 1
 
@@ -83,3 +93,13 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
 * `multiply` => Matrix multiplication seems to be a standard benchmark operation used in practice (see Figure 2 + Benchmark in PR)
   * SparseMatrix vs DenseMatrix !? ()
 * ???
+
+### Google Dataproc
+
+* [Dataproc Console](https://console.cloud.google.com/dataproc/clusters?project=YOUR_PROJECT_NAME)
+* [Dataproc Python API](https://googleapis.github.io/google-cloud-python/latest/dataproc/index.html)
+  * [(+) API Reference](https://googleapis.github.io/google-cloud-python/latest/dataproc/gapic/v1/api.html)
+  * [python-docs-samples/dataproc](https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/dataproc)
+  * [Intro docs](https://cloud.google.com/dataproc/docs/tutorials/python-library-example)
+* [Using preemtive VMs](https://cloud.google.com/dataproc/docs/concepts/compute/preemptible-vms#how_preemptibles_work_with_cloud_dataproc) => "Preemptible VM instances are not included in the Google Cloud Platform Free Tier." [source](https://cloud.google.com/compute/pricing)
+* [Create Cluster Config](https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.ClusterConfig)
