@@ -17,7 +17,7 @@ machine_type = 'n1-standard-1'
 bucket_name = 'wasp-bucket'
 # Spark job
 pyspark_file = 'compute.py'
-pip_file = 'pip_install.sh'
+pip_file_path = 'pip_install.sh'
 
 
 def list_clusters_with_details():
@@ -55,7 +55,7 @@ def cluster_data(num_workers = 2):
                 'image_version': '1.3-ubuntu18'
             },
             'initialization_actions': [
-                { 'executable_file': 'gs://{}/{}'.format(bucket_name, pip_file) }
+                { 'executable_file': 'gs://{}/{}'.format(bucket_name, pip_file_path) }
             ]
         }
     }
@@ -191,7 +191,7 @@ def main():
     list_clusters_with_details()
 
     spark_file, spark_filename = get_pyspark_file(pyspark_file)
-    pip_file, pip_filename = get_pyspark_file(pip_file)
+    pip_file, pip_filename = get_pyspark_file(pip_file_path)
     # Basically only necessary if not exists
     # create_bucket(bucket_name)
     upload_pip_file(project_id, bucket_name, pip_filename, pip_file)
@@ -202,8 +202,6 @@ def main():
     # list_clusters_with_details()
 
     print('Resizing cluster to {} nodes'.format(2))
-    update_cluster(2)
-    wait_for_cluster_operation()
     submit_job(spark_filename)
     submit_job(spark_filename)
     submit_job(spark_filename)
@@ -219,3 +217,5 @@ def main():
     # TODO: use try/finally to kill resources on failure
     # delete_cluster()
     # spark_file.close()
+
+main()
