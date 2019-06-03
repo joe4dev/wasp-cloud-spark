@@ -10,6 +10,8 @@ import numpy
 from scipy.io import mmread
 from scipy.sparse import coo_matrix
 from datetime import datetime
+# download example matrix
+import urllib
 
 appName = "MultiplyApp"
 local = "local"
@@ -21,6 +23,9 @@ sc = SparkContext()
 spark = SparkSession(sc)
 
 mat = mmread("data/psmigr_1.mtx")
+matrix_file = urllib.URLopener()
+matrix_file.retrieve("https://vanrooij.se/index.php/s/wBPCCoygzXccJg8/download", "psmigr_1.mtx")
+mat = mmread("psmigr_1.mtx")
 
 startTimestamp_block = datetime.now()
 indexed_rows = sc.parallelize(enumerate(mat.toarray()), numSlices=512)
