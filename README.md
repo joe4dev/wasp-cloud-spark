@@ -103,3 +103,4 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
   * [Intro docs](https://cloud.google.com/dataproc/docs/tutorials/python-library-example)
 * [Using preemtive VMs](https://cloud.google.com/dataproc/docs/concepts/compute/preemptible-vms#how_preemptibles_work_with_cloud_dataproc) => "Preemptible VM instances are not included in the Google Cloud Platform Free Tier." [source](https://cloud.google.com/compute/pricing)
 * [Create Cluster Config](https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.ClusterConfig)
+* [Dataproc Release Versions](https://cloud.google.com/dataproc/docs/concepts/versioning/dataproc-release-1.3)

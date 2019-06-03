@@ -9,6 +9,8 @@ from pyspark.mllib.linalg.distributed import IndexedRowMatrix
 import numpy
 from scipy.io import mmread
 from scipy.sparse import coo_matrix
+# download example matrix
+import urllib
 
 appName = "MultiplyApp"
 local = "local"
@@ -19,7 +21,9 @@ conf = SparkConf().setAppName(appName).setMaster(local)
 sc = SparkContext(conf=conf)
 spark = SparkSession(sc)
 
-mat = mmread("data/rel3.mtx")
+matrix_file = urllib.URLopener()
+matrix_file.retrieve("https://vanrooij.se/index.php/s/absHJm46dG6MDg5/download", "rel3.mtx")
+mat = mmread("rel3.mtx")
 
 indexed_rows = sc.parallelize(enumerate(mat.toarray()))
 indexed_row_matrix = IndexedRowMatrix(indexed_rows)
