@@ -22,7 +22,6 @@ nColumnsPerBlock = 1024 # Need to set this to something useful
 sc = SparkContext()
 spark = SparkSession(sc)
 
-mat = mmread("data/psmigr_1.mtx")
 matrix_file = urllib.URLopener()
 matrix_file.retrieve("https://vanrooij.se/index.php/s/wBPCCoygzXccJg8/download", "psmigr_1.mtx")
 mat = mmread("psmigr_1.mtx")

@@ -3,10 +3,10 @@ all: run
 install:
 	pip install -r requirements.txt
 
-run: multiply
+run: compute
 
-multiply:
-	python multiply.py
+run_cloud:
+	python run_cloud.py
 
-import:
-	python import.py
+compute:
+	python compute.py
