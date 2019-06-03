@@ -3,9 +3,9 @@ import os
 from google.cloud import dataproc_v1
 from google.cloud import storage
 
-client = dataproc_v1.ClusterControllerClient()
-job_client = dataproc_v1.JobControllerClient()
-
+# Requirements:
+# 1) export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json
+# 2) export PROJECT_ID=YOUR_GOOGLE_PROJECT_ID
 project_id = os.environ['PROJECT_ID']
 region = 'global'
 
@@ -19,6 +19,9 @@ bucket_name = 'wasp-bucket'
 pyspark_file = 'compute.py'
 pip_file_path = 'pip_install.sh'
 
+# Global Google cloud API clients
+client = dataproc_v1.ClusterControllerClient()
+job_client = dataproc_v1.JobControllerClient()
 
 def list_clusters_with_details():
     """List the details of clusters in the region."""
@@ -214,7 +217,7 @@ def main():
         submit_job(spark_filename)
         submit_job(spark_filename)
 
-    # TODO: use try/finally to kill resources on failure
+    # Release resources: (best in try/finally)
     # delete_cluster()
     # spark_file.close()
 
