@@ -1,0 +1,25 @@
+Resizing cluster to 8 nodes
+Updating cluster...
+Traceback (most recent call last):
+  File "run_cloud.py", line 226, in <module>
+    main()
+  File "run_cloud.py", line 208, in main
+    update_cluster(8)
+  File "run_cloud.py", line 81, in update_cluster
+    cluster = client.update_cluster(project_id, region, cluster_name, cluster_data(num_workers), update_mask)
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/google/cloud/dataproc_v1/gapic/cluster_cont
+roller_client.py", line 456, in update_cluster
+    request, retry=retry, timeout=timeout, metadata=metadata
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/google/api_core/gapic_v1/method.py", line 143, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/google/api_core/retry.py", line 273, in retry_wrapped_func
+    on_error=on_error,
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/google/api_core/retry.py", line 182, in retry_target
+    return target()
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/google/api_core/timeout.py", line 214, in func_with_timeout
+    return func(*args, **kwargs)
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/google/api_core/grpc_helpers.py", line 59, in error_remapped_callable
+    six.raise_from(exceptions.from_grpc_error(exc), exc)
+  File "/Users/joe/.virtualenvs/wasp-cloud/lib/python2.7/site-packages/six.py", line 737, in raise_from
+    raise value
+google.api_core.exceptions.InvalidArgument: 400 Insufficient 'IN_USE_ADDRESSES' quota. Requested 1.0, available 0.0.
