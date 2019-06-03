@@ -4,6 +4,11 @@
 * Deadline: June 6th
 * Github repository: https://github.com/joe4dev/wasp-cloud-spark
 
+## Requirements
+
+* [Apache Spark](https://spark.apache.org/downloads.html) (v2.4.3)
+* Java 8 in the path [see JAVA_HOME](https://stackoverflow.com/questions/53583199/pyspark-error-unsupported-class-file-major-version-55)
+
 ## Project 1
 
 * Evaluate the Spark library LINALG
@@ -70,6 +75,8 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
   * [multiply(matrix)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply): "Multiply this matrix by a local dense matrix on the right."
   * [columnSimilarities(threshold=0.0)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.RowMatrix.columnSimilarities): "Compute similarities between columns of this matrix."
   * [tallSkinnyQR(computeQ=False)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.RowMatrix.tallSkinnyQR): "Compute the QR decomposition of this RowMatrix. The implementation is designed to optimize the QR decomposition (factorization) for the RowMatrix of a tall and skinny shape."
+
+* [SparseMatrix](https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/ml/linalg/SparseMatrix.html)
 
 ### Chosen Operations
 
