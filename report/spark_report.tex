@@ -89,8 +89,6 @@ The number of RDDs created seemed to be influenced by the \emph{numSlices} param
 Some experimentation showed that a value of 512 resulted in swift computation and good scalability.
 The RDDs with indexed rows were used to create a distributed \emph{IndexedRowMatrix}, which in turn could be transformed in a \emph{BlockMatrix}. 
 
-
-
 \subsection{Google Dataproc Cloud Platform}
 
 Following the task description, we use the cloud-native Apache Spark infrastructure Google Dataproc\footurl{https://cloud.google.com/dataproc/}.
@@ -107,9 +105,63 @@ The cluster resizing operation is particularly interesting (and particularly poo
 For monitoring the cluster during job execution, we created a Stackdriver\footurl{https://cloud.google.com/stackdriver/} account.
 Stackdriver integrates seemlessly into Google Dataproc and provides charts of CPU utilization, memory allocation, network I/O, disk I/O, etc.
 
-\section{Results}
+\section{Results and Discussion}
+
+Figure~\ref{fig:multiply} shows ...
+
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=\textwidth]{img/multiply-speedup}
+%    \caption{Multipy Method – Speedup}
+%    \label{fig:multiply}
+%\end{figure}
+
+The summary of monitoring charts in Figure~\ref{fig:multiply-charts} reveals that CPU utilization seems to be the the limiting factor of the matrix computation jobs as indicated by peaks above 0.8 reaching almost full utilization 1.0 at the end of the experiment.
+Figure~\ref{fig:multiply-cpu} and Figure~\ref{fig:multiply-mem} detail the actual CPU and memory utilization of the cluster during the approximately one hour experiment.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/multiply-resources}
+    \caption{Multipy Method – Resource Utilzation}
+    \label{fig:multiply-resources}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/multiply-cpu}
+    \caption{Multipy Method – CPU Utilization}
+    \label{fig:multiply-cpu}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/multiply-memory}
+    \caption{Multipy Method – Memory Utilization}
+    \label{fig:multiply-mem}
+\end{figure}
 
 
+Figure~\ref{fig:svd} shows ...
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=\textwidth]{img/svd-speedup}
+%    \caption{SVD Method – Speedup}
+%    \label{fig:svd}
+%\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/svd-cpu}
+    \caption{SVD Method – CPU Utilization}
+    \label{fig:svd-cpu}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/svd-memory}
+    \caption{SVD Method – Memory Utilization}
+    \label{fig:svd-mem}
+\end{figure}
 
 \section{Lessons Learned}
 % In your report, include a link to your code on github. 
