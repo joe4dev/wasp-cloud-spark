@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\title{WASP Cloud Assignment – Spark Report}
+\title{WASP Cloud Assignment – Project 1}
 
 \author{Joel Scheuner (scheuner@chalmers.se), Joris Van Rooij (jorisv@chalmers.se)}
 %\email{scheuner@chalmers.se}
@@ -24,9 +24,11 @@
 %
 %Please follow the data science process, and comment on how you have followed it.
 
-This report presents the methodology and summarizes the results of \emph{project 1} of the WASP cloud assignment.
+This report presents the methodology and summarizes the results of \emph{project 1} for the WASP cloud assignment.
 
-\section{Setup}
+Github repo: \url{https://github.com/joe4dev/wasp-cloud-spark/}
+
+\section{Methodology}
 
 \subsection{Pyspark Libary}
 We choose to evalute the methods \emph{multiply(other)} and \emph{computeSVD(k)} of the IndexedRowMatrix in the distributed module of the LINALG Spark library (version 2.4.2) for Python (i.e., Pyspark)\footurl{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#module-pyspark.mllib.linalg.distributed}.
@@ -98,7 +100,14 @@ The cluster resizing operation is particularly interesting (and particularly poo
 For monitoring the cluster during job execution, we created a Stackdriver\footurl{https://cloud.google.com/stackdriver/} account.
 Stackdriver integrates seemlessly into Google Dataproc and provides charts of CPU utilization, memory allocation, network I/O, disk I/O, etc.
 
-\section{Conclusion}
+\section{Results}
+
+
+
+\section{Lessons Learned}
+% In your report, include a link to your code on github. 
+% Include a section where you comment on what you have learned, what did you think about the assignment, if you feel it is too easy, too hard, or something else. Please comment on what you liked an what you did not like.
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{cloud-linalg.bib}

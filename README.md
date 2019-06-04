@@ -23,7 +23,7 @@
 
 * Evaluate the Spark library LINALG
 * LINALG
-  * [Reference](https://spark.apache.org/docs/1.5.1/api/java/org/apache/spark/mllib/linalg/package-frame.html)
+  * [Reference (given outdated link in assignment)](https://spark.apache.org/docs/1.5.1/api/java/org/apache/spark/mllib/linalg/package-frame.html)
   * [Paper](https://shivaram.org/publications/matrix-spark-kdd.pdf)
     * [TFOCS for Spark Implementation + Examples](https://github.com/databricks/spark-tfocs)
     * [Sparse Matrix support (CCS) and additional native BLAS](https://github.com/apache/spark/pull/2294)
@@ -92,7 +92,7 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
 
 * `multiply` => Matrix multiplication seems to be a standard benchmark operation used in practice (see Figure 2 + Benchmark in PR)
   * SparseMatrix vs DenseMatrix !? ()
-* ???
+* `computeSVD(k)`
 
 ### Google Dataproc
 
@@ -103,3 +103,5 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
   * [Intro docs](https://cloud.google.com/dataproc/docs/tutorials/python-library-example)
 * [Using preemtive VMs](https://cloud.google.com/dataproc/docs/concepts/compute/preemptible-vms#how_preemptibles_work_with_cloud_dataproc) => "Preemptible VM instances are not included in the Google Cloud Platform Free Tier." [source](https://cloud.google.com/compute/pricing)
 * [Create Cluster Config](https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.ClusterConfig)
+
+* [Stackdriver Monitoring](https://app.google.stackdriver.com)
