@@ -2,6 +2,9 @@
 \documentclass{prog_report}
 
 \usepackage{url}
+\usepackage{hyperref}
+\usepackage{todonotes}
+
 \newcommand{\footurl}[1]{\footnote{\url{#1}}}
 
 \renewcommand{\baselinestretch}{1.0}
@@ -21,8 +24,83 @@
 %
 %Please follow the data science process, and comment on how you have followed it.
 
+This report presents the methodology and summarizes the results of \emph{project 1} of the WASP cloud assignment.
+
 \section{Setup}
 
+\subsection{Pyspark Libary}
+We choose to evalute the methods \emph{multiply(other)} and \emph{computeSVD(k)} of the IndexedRowMatrix in the distributed module of the LINALG Spark library (version 2.4.2) for Python (i.e., Pyspark)\footurl{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#module-pyspark.mllib.linalg.distributed}.
+Initially, we thought the Scala version of the library would be a good fit because Spark itself is written in Scala but we discovered a severe lack of documentation (particularly for the relevant distributed module) for the Scala\footurl{https://spark.apache.org/docs/2.4.2/api/scala/\#org.apache.spark.mllib.linalg.distributed.package} and Java\footurl{https://spark.apache.org/docs/2.4.2/api/java/} API documentation.
+The Python API had least some documentation including a couple of code examples and direct links to the source code.
+Based on the API documentation, we selected the following shortlist of non-trivial operations (e.g., excluding numRows(), transpose()):
+
+\begin{itemize}
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.add}{add(other)}:
+    ``The matrices must have the same size and matching rowsPerBlock and
+    colsPerBlock values.''
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.multiply}{multiply(other)}:
+    ``The colsPerBlock of this matrix must equal the rowsPerBlock of
+    other.'' Better no SparseMatrix blocks because they have to be
+    converted to DenseMatrix blocks, which may lead to performance
+    issues due to lacking support for multiplying two sparse matrices.
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.subtract}{subtract(other)}:
+    ``The matrices must have the same size and matching rowsPerBlock and
+    colsPerBlock values.''
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD}{computeSVD(k,
+        computeU=False, rCond=1e-09)}: ``Computes the singular value
+    decomposition of the IndexedRowMatrix.''
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply}{multiply(matrix)}:
+    ``Multiply this matrix by a local dense matrix on the right.''
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.RowMatrix.columnSimilarities}{columnSimilarities(threshold=0.0)}:
+    ``Compute similarities between columns of this matrix.''
+    \item
+    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.RowMatrix.tallSkinnyQR}{tallSkinnyQR(computeQ=False)}:
+    ``Compute the QR decomposition of this RowMatrix. The implementation
+    is designed to optimize the QR decomposition (factorization) for the
+    RowMatrix of a tall and skinny shape.''
+\end{itemize}
+
+We decided to implement and evaluate the following two methods:
+\begin{itemize}
+    \item \code{pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply(other)}
+    \item \code{pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD(k)}
+\end{itemize}
+We choose these methods because they are both implemented for the matrix type of \emph{IndexedRowMatrix}, which is beneficial for distributed computing.
+Further, multiply seems the de-facto standard for benchmarking matrix operations in practice (e.g., also used in the pull request contributing to the distributed Spark module\footurl{https://github.com/apache/spark/pull/2294}).
+Finally, computeSVD has been described in literature as one "of the more interesting approaches"\cite{bosagh-zadeh:16}:
+
+\subsection{Dataset Choice}
+
+Following the task description, we selected an appropriate matrix dataset from the "SuiteSparse Matrix Collection"\footurl{https://sparse.tamu.edu/}.
+We use the \code{.mtx} Matrix Market format as it can be easily parsed using the popular Python SciPy\footurl{https://www.scipy.org/} library.
+For the actual evaluation, we choose a sparse matrix of size 3140 3140 ... \todo{Joris: describe choosen matrix and how we create an IndexedRowMatrix}
+
+
+\subsection{Google Dataproc Cloud Platform}
+
+Following the task description, we use the cloud-native Apache Spark infrastructure Google Dataproc\footurl{https://cloud.google.com/dataproc/}.
+Dataproc offers several API interfaces\footurl{https://cloud.google.com/dataproc/docs/api-libraries-overview} based gRPC\footurl{https://grpc.io/} including client SDKs in many languages and a command line interface called gcloud.
+We wanted to automate the creation of different-sized clusters to conduct the performance speedup analysis and therefore choose to explore the Python API\footurl{https://googleapis.github.io/google-cloud-python/latest/dataproc/index.html} instead of writing shell scripts for the gcloud CLI.
+This also seemed a reasonable choice as our computation code is already written in Python.
+There is some introductory documentation\footurl{https://cloud.google.com/dataproc/docs/tutorials/python-library-example} and a Github repository with Python examples\footurl{https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/dataproc} available.
+However, we figured out that the Python API is just in alpha status and documentation in the API reference\footurl{https://googleapis.github.io/google-cloud-python/latest/dataproc/gapic/v1/api.html} is practically inexistent.
+Even fundamental cluster configuration options were basically undocumented and had to be reverse-engineered from the gRPC Dataproc API\footnote{https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1\#google.cloud.dataproc.v1.ClusterConfig} or the actual source code.
+Even worse, essential configurations, such as installing pip dependencies using the out-of-the-box Python initialization actions\footurl{https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/python}, were impossible due to gRPC request validity restrictions (e.g., it was impossible to set uppercase environment variables using metadata because only lowercase metadata keys were allowed).
+We had to find several workaround for such issues but finally managed to implement a Python orchestrator script that creates a cluster and necessary Google storage buckets, submits a pyspark job multiple times, automatically resizes the cluster (i.e., by adding extra nodes), and finally deletes the cluster.
+The cluster resizing operation is particularly interesting (and particularly poorly documented) as it allows us to adjust the number of worker nodes without having to re-create the entire cluster.
+
+For monitoring the cluster during job execution, we created a Stackdriver\footurl{https://cloud.google.com/stackdriver/} account.
+Stackdriver integrates seemlessly into Google Dataproc and provides charts of CPU utilization, memory allocation, network I/O, disk I/O, etc.
+
 \section{Conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{cloud-linalg.bib}
 
 \end{document}
