@@ -28,10 +28,10 @@
     * [TFOCS for Spark Implementation + Examples](https://github.com/databricks/spark-tfocs)
     * [Sparse Matrix support (CCS) and additional native BLAS](https://github.com/apache/spark/pull/2294)
   * [MLib (parent lib) Docs Example with linalg.Vectors](https://spark.apache.org/docs/1.0.1/mllib-linear-methods.html#linear-least-squares-lasso-and-ridge-regression)
-* [Spark 2.4.2 docs](https://spark.apache.org/docs/2.4.2/)
-  * [Distributed linalg Matrix API (Scala)](https://spark.apache.org/docs/2.4.2/api/scala/index.html#org.apache.spark.mllib.linalg.distributed.package)
-  * [Distributed linalg Matrix API (Java)](https://spark.apache.org/docs/2.4.2/api/java/index.html)
-  * [(+best docs) Distributed linalg Matrix API (Python)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#module-pyspark.mllib.linalg.distributed)
+* [Spark 2.4.3 docs](https://spark.apache.org/docs/2.4.3/)
+  * [Distributed linalg Matrix API (Scala)](https://spark.apache.org/docs/2.4.3/api/scala/index.html#org.apache.spark.mllib.linalg.distributed.package)
+  * [Distributed linalg Matrix API (Java)](https://spark.apache.org/docs/2.4.3/api/java/index.html)
+  * [(+best docs) Distributed linalg Matrix API (Python)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#module-pyspark.mllib.linalg.distributed)
   * Latest Spark version available on Google Dataproc [see Changelog](https://cloud.google.com/dataproc/docs/release-notes#may_9_2019)
 * [Dataset](https://sparse.tamu.edu/)
   * "you will find multiple matrices in different formats from many applications, including, control and optimization, networking, and privacy data"
@@ -75,16 +75,16 @@ Hint: We can use filters (e.g., by matrix structure) to search for a suitable da
   * => automated cluster management etc, seems smart to use that one
   * [Docs](https://cloud.google.com/dataproc/docs/quickstarts)
 * The *Distributed linalg Matrix API* has the best API documentation in Python, probably the best choice to go with Python then
-  * [(+best docs) Distributed linalg Matrix API (Python)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#module-pyspark.mllib.linalg.distributed)
+  * [(+best docs) Distributed linalg Matrix API (Python)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#module-pyspark.mllib.linalg.distributed)
 
 * Which operations?
-  * [add(other)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.BlockMatrix.add): "The matrices must have the same size and matching rowsPerBlock and colsPerBlock values."
-  * [multiply(other)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.BlockMatrix.multiply): "The colsPerBlock of this matrix must equal the rowsPerBlock of other." Better no SparseMatrix blocks because they have to be converted to DenseMatrix blocks, which may lead to performance issues due to lacking support for multiplying two sparse matrices.
-  * [subtract(other)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.BlockMatrix.subtract): "The matrices must have the same size and matching rowsPerBlock and colsPerBlock values."
-  * [computeSVD(k, computeU=False, rCond=1e-09)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD): "Computes the singular value decomposition of the IndexedRowMatrix."
-  * [multiply(matrix)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply): "Multiply this matrix by a local dense matrix on the right."
-  * [columnSimilarities(threshold=0.0)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.RowMatrix.columnSimilarities): "Compute similarities between columns of this matrix."
-  * [tallSkinnyQR(computeQ=False)](https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.RowMatrix.tallSkinnyQR): "Compute the QR decomposition of this RowMatrix. The implementation is designed to optimize the QR decomposition (factorization) for the RowMatrix of a tall and skinny shape."
+  * [add(other)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.BlockMatrix.add): "The matrices must have the same size and matching rowsPerBlock and colsPerBlock values."
+  * [multiply(other)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.BlockMatrix.multiply): "The colsPerBlock of this matrix must equal the rowsPerBlock of other." Better no SparseMatrix blocks because they have to be converted to DenseMatrix blocks, which may lead to performance issues due to lacking support for multiplying two sparse matrices.
+  * [subtract(other)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.BlockMatrix.subtract): "The matrices must have the same size and matching rowsPerBlock and colsPerBlock values."
+  * [computeSVD(k, computeU=False, rCond=1e-09)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD): "Computes the singular value decomposition of the IndexedRowMatrix."
+  * [multiply(matrix)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply): "Multiply this matrix by a local dense matrix on the right."
+  * [columnSimilarities(threshold=0.0)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.RowMatrix.columnSimilarities): "Compute similarities between columns of this matrix."
+  * [tallSkinnyQR(computeQ=False)](https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html#pyspark.mllib.linalg.distributed.RowMatrix.tallSkinnyQR): "Compute the QR decomposition of this RowMatrix. The implementation is designed to optimize the QR decomposition (factorization) for the RowMatrix of a tall and skinny shape."
 
 * [SparseMatrix](https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/ml/linalg/SparseMatrix.html)
 
