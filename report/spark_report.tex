@@ -26,6 +26,7 @@
 
 This report presents the methodology and summarizes the results of \emph{project 1} for the WASP cloud assignment.
 
+% In your report, include a link to your code on github. 
 Github repo: \url{https://github.com/joe4dev/wasp-cloud-spark/}
 
 \section{Methodology}
@@ -97,7 +98,7 @@ We wanted to automate the creation of different-sized clusters to conduct the pe
 This also seemed a reasonable choice as our computation code is already written in Python.
 There is some introductory documentation\footurl{https://cloud.google.com/dataproc/docs/tutorials/python-library-example} and a Github repository with Python examples\footurl{https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/dataproc} available.
 However, we figured out that the Python API is just in alpha status and documentation in the API reference\footurl{https://googleapis.github.io/google-cloud-python/latest/dataproc/gapic/v1/api.html} is practically inexistent.
-Even fundamental cluster configuration options were basically undocumented and had to be reverse-engineered from the gRPC Dataproc API\footnote{https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1\#google.cloud.dataproc.v1.ClusterConfig} or the actual source code.
+Even fundamental cluster configuration options were basically undocumented and had to be reverse-engineered from the gRPC Dataproc API\footurl{https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1\#google.cloud.dataproc.v1.ClusterConfig} or the actual source code.
 Even worse, essential configurations, such as installing pip dependencies using the out-of-the-box Python initialization actions\footurl{https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/python}, were impossible due to gRPC request validity restrictions (e.g., it was impossible to set uppercase environment variables using metadata because only lowercase metadata keys were allowed).
 We had to find several workaround for such issues but finally managed to implement a Python orchestrator script that creates a cluster and necessary Google storage buckets, submits a pyspark job multiple times, automatically resizes the cluster (i.e., by adding extra nodes), and finally deletes the cluster.
 The cluster resizing operation is particularly interesting (and particularly poorly documented) as it allows us to adjust the number of worker nodes without having to re-create the entire cluster.
@@ -106,6 +107,8 @@ For monitoring the cluster during job execution, we created a Stackdriver\footur
 Stackdriver integrates seemlessly into Google Dataproc and provides charts of CPU utilization, memory allocation, network I/O, disk I/O, etc.
 
 \section{Results and Discussion}
+
+%As scientists, you should be able to describe why you have reached that conclusion, e.g., by showing performance speedup graphs or slowdowns. Please comment on the behaviour you see, if it is linear in the amount of resources, sublinear, or something else
 
 Figure~\ref{fig:multiply} shows ...
 
@@ -164,7 +167,8 @@ Figure~\ref{fig:svd} shows ...
 \end{figure}
 
 \section{Lessons Learned}
-% In your report, include a link to your code on github. 
+We learned the use of the Google Dataproc the hard way by reverse-engineering an SDK in alpha status and conclude that using immature and undocumented API can be quite frustrating.
+
 % Include a section where you comment on what you have learned, what did you think about the assignment, if you feel it is too easy, too hard, or something else. Please comment on what you liked an what you did not like.
 I think the matrix operation part of the assignment lacks relevance in connection to the presented content at the cloud session in Umeå.
 As this part is so important for the assignment, I miss an introduction into that topics (the referrenced paper fulfills that purpose only partially).
