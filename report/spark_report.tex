@@ -31,38 +31,38 @@ Github repo: \url{https://github.com/joe4dev/wasp-cloud-spark/}
 \section{Methodology}
 
 \subsection{Pyspark Libary}
-We choose to evalute the methods \emph{multiply(other)} of the BlockMatrix and \emph{computeSVD(k)} of the IndexedRowMatrix in the distributed module of the LINALG Spark library (version 2.4.2) for Python (i.e., Pyspark)\footurl{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#module-pyspark.mllib.linalg.distributed}.
-Initially, we thought the Scala version of the library would be a good fit because Spark itself is written in Scala but we discovered a severe lack of documentation (particularly for the relevant distributed module) for the Scala\footurl{https://spark.apache.org/docs/2.4.2/api/scala/\#org.apache.spark.mllib.linalg.distributed.package} and Java\footurl{https://spark.apache.org/docs/2.4.2/api/java/} API documentation.
+We choose to evalute the methods \emph{multiply(other)} of the BlockMatrix and \emph{computeSVD(k)} of the IndexedRowMatrix in the distributed module of the LINALG Spark library (version 2.4.3) for Python (i.e., Pyspark)\footurl{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#module-pyspark.mllib.linalg.distributed}.
+Initially, we thought the Scala version of the library would be a good fit because Spark itself is written in Scala but we discovered a severe lack of documentation (particularly for the relevant distributed module) for the Scala\footurl{https://spark.apache.org/docs/2.4.3/api/scala/\#org.apache.spark.mllib.linalg.distributed.package} and Java\footurl{https://spark.apache.org/docs/2.4.3/api/java/} API documentation.
 The Python API had least some documentation including a couple of code examples and direct links to the source code.
 Based on the API documentation, we selected the following shortlist of non-trivial operations (e.g., excluding numRows(), transpose()):
 
 \begin{itemize}
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.add}{add(other)}:
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.add}{add(other)}:
     ``The matrices must have the same size and matching rowsPerBlock and
     colsPerBlock values.''
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.multiply}{multiply(other)}:
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.multiply}{multiply(other)}:
     ``The colsPerBlock of this matrix must equal the rowsPerBlock of
     other.'' Better no SparseMatrix blocks because they have to be
     converted to DenseMatrix blocks, which may lead to performance
     issues due to lacking support for multiplying two sparse matrices.
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.subtract}{subtract(other)}:
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.BlockMatrix.subtract}{subtract(other)}:
     ``The matrices must have the same size and matching rowsPerBlock and
     colsPerBlock values.''
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD}{computeSVD(k,
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD}{computeSVD(k,
         computeU=False, rCond=1e-09)}: ``Computes the singular value
     decomposition of the IndexedRowMatrix.''
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply}{multiply(matrix)}:
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply}{multiply(matrix)}:
     ``Multiply this matrix by a local dense matrix on the right.''
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.RowMatrix.columnSimilarities}{columnSimilarities(threshold=0.0)}:
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.RowMatrix.columnSimilarities}{columnSimilarities(threshold=0.0)}:
     ``Compute similarities between columns of this matrix.''
     \item
-    \href{https://spark.apache.org/docs/2.4.2/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.RowMatrix.tallSkinnyQR}{tallSkinnyQR(computeQ=False)}:
+    \href{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#pyspark.mllib.linalg.distributed.RowMatrix.tallSkinnyQR}{tallSkinnyQR(computeQ=False)}:
     ``Compute the QR decomposition of this RowMatrix. The implementation
     is designed to optimize the QR decomposition (factorization) for the
     RowMatrix of a tall and skinny shape.''
