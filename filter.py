@@ -1,4 +1,5 @@
 import re
+import matplotlib.pyplot as plt
 
 def num_nodes(line):
     return re.search('Resizing cluster to (\d) nodes', line)
@@ -38,6 +39,7 @@ with open(file, 'r') as f:
         else:
             print('Unparsable log format in line:' + line)
 
-print num_nodes_list
-print parallelize_duration_list
-print calculation_duration_list
+# Plot line graph with the two series parallelize and calculation (including labels)
+plt.plot(num_nodes_list, parallelize_duration_list, 'r')
+plt.plot(num_nodes_list, calculation_duration_list, 'b')
+plt.show()
