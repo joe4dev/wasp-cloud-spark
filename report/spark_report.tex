@@ -31,7 +31,7 @@ Github repo: \url{https://github.com/joe4dev/wasp-cloud-spark/}
 \section{Methodology}
 
 \subsection{Pyspark Libary}
-We choose to evalute the methods \emph{multiply(other)} and \emph{computeSVD(k)} of the IndexedRowMatrix in the distributed module of the LINALG Spark library (version 2.4.3) for Python (i.e., Pyspark)\footurl{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#module-pyspark.mllib.linalg.distributed}.
+We choose to evalute the methods \emph{multiply(other)} of the BlockMatrix and \emph{computeSVD(k)} of the IndexedRowMatrix in the distributed module of the LINALG Spark library (version 2.4.3) for Python (i.e., Pyspark)\footurl{https://spark.apache.org/docs/2.4.3/api/python/pyspark.mllib.html\#module-pyspark.mllib.linalg.distributed}.
 Initially, we thought the Scala version of the library would be a good fit because Spark itself is written in Scala but we discovered a severe lack of documentation (particularly for the relevant distributed module) for the Scala\footurl{https://spark.apache.org/docs/2.4.3/api/scala/\#org.apache.spark.mllib.linalg.distributed.package} and Java\footurl{https://spark.apache.org/docs/2.4.3/api/java/} API documentation.
 The Python API had least some documentation including a couple of code examples and direct links to the source code.
 Based on the API documentation, we selected the following shortlist of non-trivial operations (e.g., excluding numRows(), transpose()):
@@ -70,10 +70,10 @@ Based on the API documentation, we selected the following shortlist of non-trivi
 
 We decided to implement and evaluate the following two methods:
 \begin{itemize}
-    \item \code{pyspark.mllib.linalg.distributed.IndexedRowMatrix.multiply(other)}
+    \item \code{pyspark.mllib.linalg.distributed.BlockMatrix.multiply(other)}
     \item \code{pyspark.mllib.linalg.distributed.IndexedRowMatrix.computeSVD(k)}
 \end{itemize}
-We choose these methods because they are both implemented for the matrix type of \emph{IndexedRowMatrix}, which is beneficial for distributed computing.
+We choose these methods because they are implemented for the distributed matrix types of \emph{BlockMatrix} and \emph{IndexedRowMatrix}, which is beneficial for distributed computing.
 Further, multiply seems the de-facto standard for benchmarking matrix operations in practice (e.g., also used in the pull request contributing to the distributed Spark module\footurl{https://github.com/apache/spark/pull/2294}).
 Finally, computeSVD has been described in literature as one "of the more interesting approaches"\cite{bosagh-zadeh:16}:
 
@@ -81,7 +81,14 @@ Finally, computeSVD has been described in literature as one "of the more interes
 
 Following the task description, we selected an appropriate matrix dataset from the "SuiteSparse Matrix Collection"\footurl{https://sparse.tamu.edu/}.
 We use the \code{.mtx} Matrix Market format as it can be easily parsed using the popular Python SciPy\footurl{https://www.scipy.org/} library.
-For the actual evaluation, we choose a sparse matrix of size 3140 3140 ... \todo{Joris: describe choosen matrix and how we create an IndexedRowMatrix}
+For the actual evaluation, we chose a sparse matrix of size 3140 by 3140 with 543,160 nonzero values. 
+Tests performed with Spark on a single laptop showed reasonable runtimes for the selected calculations with this matix.
+The SciPy method \code{mmread} transforms the matrix in a format that allows extraction of it rows. 
+An enumeration of these rows was used to create the Spark RDDs with indexed rows. 
+The number of RDDs created seemed to be influenced by the \emph{numSlices} parameter, which in turn influences the processing speed and scalability of the computations.
+Some experimentation showed that a value of 512 resulted in swift computation and good scalability.
+The RDDs with indexed rows were used to create a distributed \emph{IndexedRowMatrix}, which in turn could be transformed in a \emph{BlockMatrix}. 
+
 
 
 \subsection{Google Dataproc Cloud Platform}
