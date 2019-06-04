@@ -2,6 +2,7 @@
 import os
 from google.cloud import dataproc_v1
 from google.cloud import storage
+from time import sleep
 
 # Requirements:
 # 1) export GOOGLE_APPLICATION_CREDENTIALS=/path/to/key.json
@@ -14,7 +15,7 @@ zone = 'us-east1-b'
 cluster_name = 'wasp-cloud'
 machine_type = 'n1-standard-1'
 # Storage settings
-bucket_name = 'wasp-bucket'
+bucket_name = 'wasp-bucket1'
 # Spark job
 pyspark_file = 'compute.py'
 pip_file_path = 'pip_install.sh'
@@ -104,6 +105,8 @@ def wait_for_cluster_operation():
         if not waiting_callback:
             print("Cluster created or updated.")
             break
+        else:
+            sleep(10)
 
 def create_bucket(bucket_name):
     """Creates a new bucket."""
@@ -200,9 +203,9 @@ def main():
     upload_pip_file(project_id, bucket_name, pip_filename, pip_file)
     upload_pyspark_file(project_id, bucket_name, spark_filename, spark_file)
 
-    # create_cluster()
-    # wait_for_cluster_operation()
-    # list_clusters_with_details()
+    create_cluster()
+    wait_for_cluster_operation()
+    list_clusters_with_details()
 
     print('Resizing cluster to {} nodes'.format(2))
     submit_job(spark_filename)
