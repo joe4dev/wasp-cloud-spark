@@ -113,32 +113,32 @@ Stackdriver integrates seemlessly into Google Dataproc and provides charts of CP
 Figure~\ref{fig:multiply} shows that the execution time for the matrix multiplication decreases sublinear with the number of worker nodes available. This is probably due to the increased amount of overhead added by the increasing number of nodes. 
 The speedup for the calculation step is significantly larger than for the parallelization step. We were unable to find documentation for the parallelization that could explain this behaviour.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{img/multiply-speedup.pdf}
     \caption{Multipy Method – Speedup}
     \label{fig:multiply}
 \end{figure}
 
-The summary of monitoring charts in Figure~\ref{fig:multiply-charts} reveals that CPU utilization does not seem to be the the limiting factor of the matrix computation jobs as indicated by peaks between 0.7 and 0.5 during the calculations. 
+The summary of monitoring charts in Figure~\ref{fig:multiply-resources} reveals that CPU utilization does not seem to be the the limiting factor of the matrix computation jobs as indicated by peaks between 0.7 and 0.5 during the calculations. 
 The amount of allocated memory seems to be maximal during calculations which could indicate that the amount of available memory is the bottleneck.
 Figure~\ref{fig:multiply-cpu} and Figure~\ref{fig:multiply-mem} detail the actual CPU and memory utilization of the cluster during the approximately one hour experiment.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/multiply-resources}
     \caption{Multipy Method – Resource Utilzation}
     \label{fig:multiply-resources}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/multiply-cpu}
     \caption{Multipy Method – CPU Utilization}
     \label{fig:multiply-cpu}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/multiply-memory}
     \caption{Multipy Method – Memory Utilization}
@@ -147,23 +147,23 @@ Figure~\ref{fig:multiply-cpu} and Figure~\ref{fig:multiply-mem} detail the actua
 
 
 Figure~\ref{fig:svd} shows that the speedup for the calculation of the SVD is sublinear similary to the speedup for the matrix multiplication. The execution time for the parallelization step does not scale with the number of workers, this is probably caused by not having to transform the IndexedRowMatrix to a BlockMatrix.
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{img/svd-speedup}
     \caption{SVD Method – Speedup}
     \label{fig:svd}
 \end{figure}
 
-Figures~\ref{fig_svd-cpu} and \ref{fig:svd-mem} show that the bottleneck for the SVD calculation most likely is the CPU utilization since that is stable at around 0.8 during all calculations.
+Figures~\ref{fig:svd-cpu} and \ref{fig:svd-mem} show that the bottleneck for the SVD calculation most likely is the CPU utilization since that is stable at around 0.8 during all calculations.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/svd-cpu}
     \caption{SVD Method – CPU Utilization}
     \label{fig:svd-cpu}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{img/svd-memory}
     \caption{SVD Method – Memory Utilization}
